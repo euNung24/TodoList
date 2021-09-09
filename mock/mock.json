@@ -1,0 +1,20 @@
+{
+  "todolists": [
+      {
+        "todo": "놀기",
+        "isComplete": false
+      },
+      {
+        "todo": "빨래하기",
+        "isComplete": false
+      },
+      {
+        "todo": "청소하기",
+        "isComplete": false
+      },
+      {
+        "todo": "잠자기",
+        "isComplete": true
+      }
+  ]
+}
