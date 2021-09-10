@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListItems from '../components/ListItems';
-import { setTodoList }  from '../actions/todoActions';
+import { setTodoList, updateTodoList, deleteTodoList }  from '../actions/todoActions';
 
 const mapStateToProps = (state) => {
   const { ids, entities } = state.todolists;
@@ -8,4 +8,4 @@ const mapStateToProps = (state) => {
   return { todolists };
 }
 
-export default connect(mapStateToProps, { setTodoList })(ListItems);
+export default connect(mapStateToProps, { setTodoList, updateTodoList, deleteTodoList })(ListItems);

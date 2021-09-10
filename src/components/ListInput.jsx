@@ -9,7 +9,6 @@ class ListInput extends PureComponent {
     this.setRef = this.setRef.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.onClick = this.onClick.bind(this);
   }
 
   componentDidMount() {
@@ -26,20 +25,19 @@ class ListInput extends PureComponent {
   }
 
   handleSubmit(e) {
-    this.props.createTodoList({todo: this.state.value, isComplete: false});
+    const { date, createTodoList } = this.props;
+    createTodoList({todo: this.state.value, isComplete: false, date: date}, date);
     e.preventDefault();     
     this.ref.value = '';
   }
 
   render() {
     return (
-      <>
-       <form onSubmit={(e) => this.handleSubmit(e)}>
+      <form onSubmit={(e) => this.handleSubmit(e)} className='input-todo'>
         <img src={emptyCheckbox} alt="" />
         <input type="text" placeholder="추가" onChange={(e) => this.handleChange(e)} ref={this.setRef} />
-        <button type="submit">추가하기</button>
+        <button type="submit"></button>
       </form>
-      </>
     );
   }
 }

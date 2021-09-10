@@ -1,18 +1,26 @@
 {
   "todolists": [
       {
+        "id": 20210910.1,
+        "date":20210910,
         "todo": "놀기",
         "isComplete": false
       },
       {
+        "id": 20210910.2,
+        "date":20210910,
         "todo": "빨래하기",
         "isComplete": false
       },
       {
+        "id": 20210909.1,
+        "date":20210909,
         "todo": "청소하기",
         "isComplete": false
       },
       {
+        "id": 20210909.1,
+        "date":20210909,
         "todo": "잠자기",
         "isComplete": true
       }

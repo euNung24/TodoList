@@ -6,11 +6,12 @@ export const FETCH = "api-reudx-pack/FETCH";
 export const FETCH_LIST = "api-reudx-pack/FETCH_LIST";
 export const UPDATE = "api-reudx-pack/UPDATE";
 export const RESET = "api-reudx-pack/RESET";
+export const DELETE = "api-reudx-pack/DELETE";
 
 export default (resourceName, key = "id") => ({
   collection: (params = {}, meta = {}) => ({
     type: FETCH_LIST,
-    promise: axios.get(`http://localhost:4000/${resourceName}`, { params }),
+    promise: Api.get(resourceName, { params }),
     meta: {
       ...meta,
       resourceName,
@@ -47,5 +48,14 @@ export default (resourceName, key = "id") => ({
   reset: () => ({
     type: RESET,
     meta: { resourceName },
+  }),
+  remove: (id, meta = {}) => ({
+    type: DELETE,
+    promise: Api.delete(`${resourceName}/${id}`),
+    meta: {
+      ...meta,
+      resourceName,
+      key,
+    },
   }),
 });

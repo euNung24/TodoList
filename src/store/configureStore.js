@@ -8,5 +8,5 @@ export default (initStates) =>
   createStore(
     combineReducers(reducers),
     initStates,
-    composeWithDevTools(applyMiddleware(reduxMiddleware))
+    composeWithDevTools(applyMiddleware(reduxMiddleware, todolistEffects))
   );
