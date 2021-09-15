@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import configureStore from '../store/configureStore';
 import { Provider } from 'react-redux';
 
-import TodoHead from './TodoHead';
-import TodoBody from './TodoBody';
+// import TodoHead from './TodoHead';
+// import TodoBody from './TodoBody';
 import TodoHeadContainer from '../containers/TodoHeadContainer';
 
 class TodoApp extends PureComponent {

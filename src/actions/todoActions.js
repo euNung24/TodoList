@@ -27,9 +27,9 @@ export function updateTodoList(id, data) {
   return update(id, data, {}, meta);
 }
 
-export function deleteTodoList(data, date) {
+export function deleteTodoList(id, date) {
   const meta = {
     date: date,
   };
-  return remove(data, meta);
+  return remove(id, meta);
 }

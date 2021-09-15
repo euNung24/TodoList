@@ -44,10 +44,12 @@ class ListInput extends PureComponent {
 
 ListInput.defaultProps ={
   value: '',
+  createTodoList: () => {}
 }
 
 ListInput.propTypes = {
-
+  date: PropTypes.string,
+  createTodoList: PropTypes.func,
 };
 
 export default ListInput;

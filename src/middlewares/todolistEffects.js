@@ -9,14 +9,8 @@ export default (store) => (nextRunner) => (action) => {
     (type === UPDATE || type === DELETE || type === CREATE) &&
     meta[KEY.LIFECYCLE] === LIFECYCLE.SUCCESS
   ) {
-    console.log(meta.date);
     store.dispatch(setTodoList({ ["date"]: meta.date }));
   }
-  // } else if (meta && meta.notification) {
-  //   const { success } = meta.notification;
-  //   if (success && meta[KEY.LIFECYCLE] === LIFECYCLE.SUCCESS) {
-  //     store.dispatch(setTodoList());
-  //   }
-  // }
+
   return result;
 };

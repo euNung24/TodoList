@@ -59,7 +59,13 @@ class TodoHead extends PureComponent {
 }
 
 TodoHead.propTypes = {
-
+  date: PropTypes.string,
+  setTodoList: PropTypes.func
 };
+
+TodoHead.defaultProps = {
+  date: '',
+  setTodoList: () => {}
+}
 
 export default TodoHead;

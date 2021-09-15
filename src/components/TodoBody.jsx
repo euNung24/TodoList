@@ -20,7 +20,11 @@ class TodoBody extends PureComponent {
 }
 
 TodoBody.propTypes = {
-
+  date: PropTypes.string,
 };
+
+TodoBody.defaultProps = {
+  date: '',
+}
 
 export default TodoBody;

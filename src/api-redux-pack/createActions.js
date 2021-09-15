@@ -1,4 +1,3 @@
-import axios from "axios";
 import Api from "../Api";
 
 export const CREATE = "api-reudx-pack/CREATE";
