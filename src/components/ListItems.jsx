@@ -33,7 +33,7 @@ class ListItems extends PureComponent {
           const { id, isComplete, date } = item;
           return (
             <li key={id} >
-              <button className={`btn-check ${isComplete ? '' : 'empty'}`} onClick={()=>this.handleClick(id, item)}>
+              <button className={`btn-check ${isComplete ? 'check' : 'empty'}`} onClick={()=>this.handleClick(id, item)}>
                 {item.todo}
               </button>
               <button className="btn-remove"><img src={trash} alt=""  onClick={() => this.deleteItem(id, date)} /></button>

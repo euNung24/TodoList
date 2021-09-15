@@ -56,6 +56,11 @@ button {
   font-size: 20px;
 }
 
+.head-todo button {
+  color: #fff;
+  vertical-align: text-top;
+}
+
 /* todoBody */
 .body-todo {
   height: 70%;
@@ -98,6 +103,14 @@ button {
     url("../src/icons/checkbox-empty-icon.png");
 }
 
+.btn-check.check {
+  text-decoration: line-through;
+}
+
+.btn-check.check:hover {
+  text-decoration: none;
+}
+
 .btn-check.empty {
   height: 40px;
   text-indent: 45px;
@@ -107,6 +120,7 @@ button {
 
 .btn-check.empty:hover {
   height: 45px;
+  filter: opacity(0.6) grayscale(100%);
   background: no-repeat left / 45px 45px url("../src/icons/checkbox-icon.png");
 }
 

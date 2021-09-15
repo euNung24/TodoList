@@ -48,9 +48,9 @@ class TodoHead extends PureComponent {
       <header className='head-todo'>
         <h2>To Do List</h2>
         
-        <button onClick={this.clickPrev}>이전</button>
+        <button onClick={this.clickPrev}>◀</button>
         <span>{date}</span>
-        <button onClick={this.clickNext}>다음</button>
+        <button onClick={this.clickNext}>▶</button>
       </header>
       <TodoBody date={date.split('/').join('')}/>
       </>
