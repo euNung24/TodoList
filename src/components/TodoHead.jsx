@@ -22,7 +22,7 @@ class TodoHead extends PureComponent {
       return ({ date: dateArr.join('/') }); 
     }, () => {
       const date = this.state.date.split('/').join('');
-      setTodoList({"date" : date});
+      // setTodoList({"date" : date});
     })
   }
 
@@ -36,7 +36,7 @@ class TodoHead extends PureComponent {
       return ({ date: dateArr.join('/') }); 
     }, () => {
       const date = this.state.date.split('/').join('');
-      setTodoList({"date" : date});
+      // setTodoList({"date" : date});
     })
   }
 
@@ -44,16 +44,16 @@ class TodoHead extends PureComponent {
     const { date } = this.state;
 
     return (
-      <>
-      <header className='head-todo'>
-        <h2>To Do List</h2>
-        
-        <button onClick={this.clickPrev}>◀</button>
-        <span>{date}</span>
-        <button onClick={this.clickNext}>▶</button>
-      </header>
-      <TodoBody date={date.split('/').join('')}/>
-      </>
+      <section className="cont-todo">
+        <header className='head-todo'>
+          <h2>To Do List</h2>
+          
+          <button onClick={this.clickPrev}>◀</button>
+          <span>{date}</span>
+          <button onClick={this.clickNext}>▶</button>
+        </header>
+        <TodoBody date={date.split('/').join('')}/>
+      </section>
     );
   }
 }

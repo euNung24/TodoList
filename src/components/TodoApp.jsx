@@ -17,9 +17,7 @@ class TodoApp extends PureComponent {
   
     return (
       <Provider store={this.store}>
-        <section className="cont-todo">
-          <TodoHeadContainer date={`${year}/${month}/${date}`}/>
-        </section>
+        <TodoHeadContainer date={`${year}/${month}/${date}`}/>
       </Provider>
     );
   }

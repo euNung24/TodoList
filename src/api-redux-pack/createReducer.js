@@ -50,7 +50,13 @@ export default (...reducerNames) => {
                 };
               }
             },
-            failure: () => {},
+            failure: (prevState) => {
+              const errorMessage = "에러 발생";
+              return {
+                ...prevState,
+                errorMessage,
+              };
+            },
           });
         }
         case RESET:
