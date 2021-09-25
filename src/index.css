@@ -161,8 +161,10 @@ button {
 .input-todo input {
   border: none;
   background: rgba(255, 255, 255, 0.6);
-  flex: auto;
+  min-width: 210px;
+  flex-grow: 1;
   height: 30px;
+  margin-right: 10px;
   padding: 0 10px;
   font-size: 20px;
   border-radius: 5px;
@@ -174,7 +176,7 @@ button {
   height: 30px;
   text-indent: -9999px;
   background-color: rgba(105, 43, 134, 0.493);
-  margin-left: 20px;
+  margin-left: auto;
   border-radius: 5px;
   position: relative;
 }

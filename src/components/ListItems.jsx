@@ -62,10 +62,10 @@ class ListItems extends PureComponent {
     return (
       <ul className='list-todo'>
         { todolists && todolists.map((item) => {
-          const { id, date, todo } = item;
+          const { id, date, todo, isComplete } = item;
           return (date===getDate) &&(
             <li key={id} >
-              <button className={'btn-check empty'} onClick={(e)=>this.handleClick(e, id)}>
+              <button className={`btn-check ${isComplete ? 'check' : 'empty'}`} onClick={(e)=>this.handleClick(e, id)}>
                 {todo}
               </button>
               <button className="btn-remove"><img src={trash} alt=""  onClick={() => this.deleteItem(id, date)} /></button>
