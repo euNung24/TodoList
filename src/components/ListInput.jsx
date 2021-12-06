@@ -1,67 +1,51 @@
-import React, { PureComponent } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import emptyCheckbox from '../icons/checkbox-empty-icon.png'
 import { doc, setDoc } from "firebase/firestore/lite";
 import { firestore } from '../firebase';
 
 
-class ListInput extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { value: ''};
-    this.setRef = this.setRef.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const ListInput = ({fullDate}) => {
+  const [ value, setValue ] = useState('');
+  const ref = useRef(null);
 
-  componentDidMount() {
-    this.ref.focus();
-  }
-
-  setRef(ref) {
-    this.ref = ref;
-  }
-
-  handleChange(e) {
+  const handleChange = (e) => {
     const { value } = e.target;
-    this.setState(({value: value}));
+    setValue(prev => value);
   }
 
-  async handleSubmit() {
-    // const { date, createTodoList } = this.props;
-    // createTodoList({todo: this.state.value, isComplete: false, date: date}, date);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(fullDate);
+    // const { createTodoList } = this.props;
     const count = document.querySelector('.list-todo').childElementCount;
-    const { value } = this.state;
-    const { date } = this.props;
-
-    await setDoc(doc(firestore, 'todolists', `${date}-${count}`), {
-      id: `${date}-${count}`,
+    // onCreateTodoList({id: `${fullDate}-${count}`, todo: value, isComplete: false, date: fullDate}, `${fullDate}-${count}`);
+    await setDoc(doc(firestore, 'todolists', `${fullDate}-${count}`), {
+      id: `${fullDate}-${count}`,
       todo: value,
-      date: date,
+      date: fullDate,
       isComplete: false,
     });
-    this.ref.value = '';
+    ref.current.value = '';
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} className='input-todo'>
-        <img src={emptyCheckbox} alt="" />
-        <input type="text" placeholder="추가" onChange={(e) => this.handleChange(e)} ref={this.setRef} />
-        <button type="submit"></button>
-      </form>
-    );
-  }
+  return (
+    <form onSubmit={handleSubmit} className='input-todo'>
+      <img src={emptyCheckbox} alt="" />
+      <input type="text" placeholder="추가" onChange={handleChange} ref={ref} />
+      <button type="submit"></button>
+    </form>
+  );
 }
 
 ListInput.defaultProps ={
   value: '',
-  createTodoList: () => {}
+  onCreateTodoList: () => {}
 }
 
 ListInput.propTypes = {
   date: PropTypes.string,
-  createTodoList: PropTypes.func,
+  onCreateTodoList: PropTypes.func,
 };
 
 export default ListInput;

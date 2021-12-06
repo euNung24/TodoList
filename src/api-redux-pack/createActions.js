@@ -1,4 +1,6 @@
+import { doc, setDoc } from "@firebase/firestore/lite";
 import Api from "../Api";
+import { firestore } from "../firebase";
 
 export const CREATE = "api-reudx-pack/CREATE";
 export const FETCH = "api-reudx-pack/FETCH";
@@ -28,7 +30,8 @@ export default (resourceName, key = "id") => ({
   }),
   create: (data, params = {}, meta = {}) => ({
     type: CREATE,
-    promise: Api.post(resourceName, data, { params }),
+    // promise: Api.post(resourceName, data, { params }),
+    promise: setDoc(doc(firestore, resourceName, data), meta),
     meta: {
       ...meta,
       resourceName,
